@@ -1,0 +1,25 @@
+
+{% extends '::base.html.twig' %}
+{% block body %}
+<h1>Détail Insecte</h1>
+<table border="1">
+    <tr>
+        <th>NOM</th><th>Famille</th><th>Age</th><th>Race</th><th>Nourriture</th>
+    </tr>
+    <td>{{ insecte.nom }}</td>
+    <td>{{ insecte.famille }}</td>
+    <td>{{ insecte.age }}</td>
+    <td>{{ insecte.race }}</td>
+    <td>{{ insecte.nourriture }}</td>
+
+</table>
+
+    <h2>Ses Amis</h2>
+    <table border="1">
+        <th>NOM</th>
+        {% for insecte in insecte.myFriends %}
+            <td>{{ insecte.nom }}</td>
+        {% endfor %}
+
+    </table>
+{% endblock %}

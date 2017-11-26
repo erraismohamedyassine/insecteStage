@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Insectes list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Famille</th>
+                <th>Race</th>
+                <th>Age</th>
+                <th>Nourriture</th>
+                <th>Id</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for insecte in insectes %}
+            <tr>
+                <td><a href="{{ path('insecte_show', { 'id': insecte.id }) }}">{{ insecte.nom }}</a></td>
+                <td>{{ insecte.famille }}</td>
+                <td>{{ insecte.race }}</td>
+                <td>{{ insecte.age }}</td>
+                <td>{{ insecte.nourriture }}</td>
+                <td>{{ insecte.id }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('insecte_show', { 'id': insecte.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('insecte_edit', { 'id': insecte.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('insecte_new') }}">Create a new insecte</a>
+        </li>
+    </ul>
+{% endblock %}
